@@ -1,6 +1,39 @@
 .container{
     display: flex;
-    align-items: center;
-    width: 50px;
     gap: 20px;
+    flex-direction: column;
+    background-color: var(--bgSoft);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.texts{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.number{
+    color: var(--textSoft);
+    font-size: 15px;
+}
+
+.detail{
+    font-size: 15px;
+    font-weight: 300;
+
+}
+
+.positive{
+    color: lime;
+}
+
+.negative{
+    color: red;
 }
