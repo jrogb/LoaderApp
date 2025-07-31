@@ -26,17 +26,17 @@ const menuItems = [
             },
             {
                 title: "Users",
-                path: "/users",
+                path: "/dashboard/users",
                 icon: <MdSupervisedUserCircle />
             },
             {
                 title: "Products",
-                path: "/products",
+                path: "/dashboard/products",
                 icon: <MdShoppingBag />
             },
             {
                 title: "Transactions",
-                path: "/transactions",
+                path: "/dashboard/transactions",
                 icon: <MdAttachMoney />
             },
 
