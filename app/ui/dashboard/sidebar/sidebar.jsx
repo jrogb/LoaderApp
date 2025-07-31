@@ -75,11 +75,6 @@ const menuItems = [
                 path: "/help",
                 icon: <MdHelpCenter />
             },
-            {
-                title: "Logout",
-                path: "/logout",
-                icon: <MdLogout />
-            }
         ],
     },
 ];
