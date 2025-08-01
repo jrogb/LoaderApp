@@ -2,7 +2,7 @@ import Card from '../ui/dashboard/card/card'
 import styles from '../ui/dashboard/dashboard.module.css'
 import Chart from '../ui/dashboard/chart/chart'
 import Rightbar from '../ui/dashboard/rightbar/rightbar'
-import Transactions from '../ui/dashboard/sidebar/transactions/transactions'
+import Transactions from '../ui/dashboard/transactions/transactions'
 
 const DashboardPage =() => {
     return (
