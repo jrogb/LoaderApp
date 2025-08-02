@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.previous{
+    padding: 10px 20px;
+    background-color: #253352; /* Green */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+.next{
+    padding: 10px 20px;
+    background-color: #253352; /* Green */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.paginationButton:disabled{
+    background-color: #ccc; /* Light gray */
+    cursor: not-allowed;
+}

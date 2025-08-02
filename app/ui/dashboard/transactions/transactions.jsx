@@ -8,19 +8,20 @@ const Transactions = () => {
             <table className={styles.table}>
                 <thead>
                     <tr>
-                        <th className={styles.header}></th>
-                        <th className={styles.header}>Name</th>
-                        <th className={styles.header}>Status</th>
-                        <th className={styles.header}>Date</th>
-                        <th className={styles.header}>Amount</th>
+                        <td className={styles.header}>Name</td>
+                        <td className={styles.header}>Status</td>
+                        <td className={styles.header}>Date</td>
+                        <td className={styles.header}>Amount</td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr className={styles.row}>
-                            <td className={styles.user}>
-                                <Image className={styles.userImage} src="/noavatar.png" alt="user profile picture" width={40} height={40}/>
-                            </td>
-                            <td className={styles.cell}>Johan</td>
+                        <td>
+                            <div className={styles.user}>
+                                <Image src="/noavatar.png" alt="User" width={40} height={40} className={styles.userImage}/>
+                                Johan Grobbelaar
+                            </div>
+                        </td>
                         <td className={styles.cell}>
                             <span className={`${styles.status} ${styles.pending}`}>Pending</span>
                         </td>
@@ -28,10 +29,12 @@ const Transactions = () => {
                         <td className={styles.cell}>$1.50</td>
                     </tr>
                     <tr className={styles.row}>
-                            <td className={styles.user}>
-                                <Image className={styles.userImage} src="/noavatar.png" alt="user profile picture" width={40} height={40}/>
-                            </td>
-                            <td className={styles.cell}>Johan</td>
+                        <td>
+                            <div className={styles.user}>
+                                <Image src="/noavatar.png" alt="User" width={40} height={40} className={styles.userImage}/>
+                                Johan Grobbelaar
+                            </div>
+                        </td>
                         <td className={styles.cell}>
                             <span className={`${styles.status} ${styles.done}`}>Done</span>
                         </td>
@@ -39,10 +42,12 @@ const Transactions = () => {
                         <td className={styles.cell}>$1.50</td>
                     </tr>
                     <tr className={styles.row}>
-                            <td className={styles.user}>
-                                <Image className={styles.userImage} src="/noavatar.png" alt="user profile picture" width={40} height={40}/>
-                            </td>
-                            <td className={styles.cell}>Johan</td>
+                        <td>
+                            <div className={styles.user}>
+                                <Image src="/noavatar.png" alt="User" width={40} height={40} className={styles.userImage}/>
+                                Johan Grobbelaar
+                            </div>
+                        </td>
                         <td className={styles.cell}>
                             <span className={`${styles.status} ${styles.cancelled}`}>Canceled</span>
                         </td>
@@ -50,10 +55,12 @@ const Transactions = () => {
                         <td className={styles.cell}>$1.50</td>
                     </tr>
                     <tr className={styles.row}>
-                            <td className={styles.user}>
-                                <Image className={styles.userImage} src="/noavatar.png" alt="user profile picture" width={40} height={40}/>
-                            </td>
-                            <td className={styles.cell}>Johan</td>
+                        <td>
+                            <div className={styles.user}>
+                                <Image src="/noavatar.png" alt="User" width={40} height={40} className={styles.userImage}/>
+                                Johan Grobbelaar
+                            </div>
+                        </td>
                         <td className={styles.cell}>
                             <span className={`${styles.status} ${styles.done}`}>Done</span>
                         </td>
@@ -61,10 +68,12 @@ const Transactions = () => {
                         <td className={styles.cell}>$1.50</td>
                     </tr>
                     <tr className={styles.row}>
-                            <td className={styles.user}>
-                                <Image className={styles.userImage} src="/noavatar.png" alt="user profile picture" width={40} height={40}/>
-                            </td>
-                            <td className={styles.cell}>Johan</td>
+                        <td>
+                            <div className={styles.user}>
+                                <Image src="/noavatar.png" alt="User" width={40} height={40} className={styles.userImage}/>
+                                Johan Grobbelaar
+                            </div>
+                        </td>
                         <td className={styles.cell}>
                             <span className={`${styles.status} ${styles.pending}`}>Pending</span>
                         </td>
