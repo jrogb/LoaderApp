@@ -4,8 +4,13 @@ import Link from 'next/link';
 import {MdAddCircleOutline} from 'react-icons/md';
 import Image from 'next/image';
 import Pagination from '@/app/ui/dashboard/pagination/pagination';
+import { fetchUsers } from '@/app/lib/data';
 
-const UsersPage = ({placeholder}) => {
+const UsersPage = async ({searchParams}) => {
+    const q = searchParams?.q || "";
+    const page = searchParams?.page || 1;
+    const {count, users} = await fetchUsers(q,page);
+    
     return (
         <div className={styles.container}>
             <div className={styles.top}>
@@ -26,31 +31,33 @@ const UsersPage = ({placeholder}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td>
-                        <div className={styles.user}>
-                            <Image src="/noavatar.png" alt="User" width={40} height={40} className={styles.userImage}/>
-                            Johan Grobbelaar
-                        </div>
-                    </td>
-                    <td>johan@email.com</td>
-                    <td>2023-10-01</td>
-                    <td>Admin</td>
-                    <td>Active</td>
-                    <td>
-                        <div className={styles.buttons}>
-                            <Link href="">
-                                <button className={`${styles.button} ${styles.view}`}>View</button>
-                            </Link>
-                            <Link href="">
-                                <button className={`${styles.button} ${styles.delete}`}>Delete</button>
-                            </Link>
-                        </div>
-                    </td>
-                    </tr>
+                    {users.map((user) => (
+                        <tr key={user._id}>
+                            <td>
+                                <div className={styles.user}>
+                                    <Image src={user.img || "/noavatar.png"} alt="User" width={40} height={40} className={styles.userImage}/>
+                                    {user.username}
+                                </div>
+                            </td>
+                            <td>{user.email}</td>
+                            <td>{new Date(user.createdAt).toLocaleDateString()}</td>
+                            <td>{user.isAdmin ? 'Admin' : 'Client'}</td>
+                            <td>{user.isActive ? 'Active' : 'Passive'}</td>
+                            <td>
+                                <div className={styles.buttons}>
+                                    <Link href={`/dashboard/users/${user._id}`}>
+                                        <button className={`${styles.button} ${styles.view}`}>View</button>
+                                    </Link>
+                                    <Link href="">
+                                        <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+                                    </Link>
+                                </div>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
-            <Pagination />
+            <Pagination count={count}/>
         </div>
     );
 };

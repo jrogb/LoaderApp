@@ -4,14 +4,20 @@ import Link from 'next/link';
 import {MdAddCircleOutline} from 'react-icons/md';
 import Image from 'next/image';
 import Pagination from '@/app/ui/dashboard/pagination/pagination';
+import { fetchProducts } from '@/app/lib/data';
 
-const Products = ({placeholder}) => {
+const Products = async({searchParams}) => {
+
+    const q = searchParams?.q || "";
+    const page = searchParams?.page || 1;
+    const {count, products} = await fetchProducts(q,page);
+
     return (
         <div className={styles.container}>
             <div className={styles.top}>
                 <Search placeholder="Search for a Product"/>
                 <Link href="/dashboard/products/add">
-                    <button className={styles.addButton}><MdAddCircleOutline width={40} height={40}/> Add User</button>
+                    <button className={styles.addButton}><MdAddCircleOutline width={40} height={40}/> Add Product</button>
                 </Link>
             </div>
             <table className={styles.table}>
@@ -26,31 +32,33 @@ const Products = ({placeholder}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td>
-                        <div className={styles.product}>
-                            <Image src="/noproduct.jpg" alt="Image of a product" width={40} height={40} className={styles.productImage}/>
-                            IPhone 15 Pro
-                        </div>
-                    </td>
-                    <td>its a phone</td>
-                    <td>$599.99</td>
-                    <td>2023-10-01</td>
-                    <td>12</td>
-                    <td>
-                        <div className={styles.buttons}>
-                            <Link href="">
-                                <button className={`${styles.button} ${styles.view}`}>View</button>
-                            </Link>
-                            <Link href="">
-                                <button className={`${styles.button} ${styles.delete}`}>Delete</button>
-                            </Link>
-                        </div>
-                    </td>
-                    </tr>
+                    {products.map((product) => (
+                        <tr key={product.id}>
+                            <td>
+                                <div className={styles.product}>
+                                    <Image src={product.img || "/noproduct.jpg"} alt="Product" width={40} height={40} className={styles.productImage}/>
+                                    {product.title}
+                                </div>
+                            </td>
+                            <td>{product.desc}</td>
+                            <td>${product.price.toFixed(2)}</td>
+                            <td>{new Date(product.createdAt).toLocaleDateString()}</td>
+                            <td>{product.stock}</td>
+                            <td>
+                                <div className={styles.buttons}>
+                                    <Link href={`/dashboard/products/${product.id}`}>
+                                        <button className={`${styles.button} ${styles.view}`}>View</button>
+                                    </Link>
+                                    <Link href="">
+                                        <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+                                    </Link>
+                                </div>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
-            <Pagination />
+            <Pagination count={count}/>
         </div>
     );
 };
