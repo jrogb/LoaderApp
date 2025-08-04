@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     },
     img: {
         type: String,
-        required: true,
+        required: false,
     },
     isAdmin: {
         type: Boolean,
@@ -57,7 +57,7 @@ const productSchema = new mongoose.Schema({
     },
     img: {
         type: String,
-        required: true,
+        required: false,
     },
     color: {
         type: String,
